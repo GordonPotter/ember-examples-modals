@@ -11,6 +11,9 @@ end
 
 gem 'jquery-rails'
 gem 'ember-rails'
+gem 'ember-source', '1.0.0.rc6.2' # or the version you need
+# optional since Handlebars 1.0.0 was released
+#gem 'handlebars-source', '~> 1.0.12' # or the version you need
 
 group :development do
   gem 'rb-fsevent'

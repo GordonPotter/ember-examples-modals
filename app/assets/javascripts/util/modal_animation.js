@@ -1,25 +1,30 @@
 App.animateModalClose = function() {
-  var promise = new Ember.RSVP.Promise();
 
-  $('.modal.in').removeClass('in');
-  $('.modal-backdrop.in').removeClass('in');
+    var closeModalPromise = new Ember.RSVP.Promise(function(resolve, reject){
 
-  setTimeout(function() {
-    promise.resolve();
-  }, App.DEFAULT_CSS_TRANSITION_DURATION_MS);
+        $('.modal.in').removeClass('in');
+        $('.modal-backdrop.in').removeClass('in');
 
-  return promise;
+        setTimeout(function() {
+            resolve(true);
+        }, App.DEFAULT_CSS_TRANSITION_DURATION_MS);
+
+    });
+
+    return closeModalPromise;
 };
 
+
 App.animateModalOpen = function() {
-  var promise = new Ember.RSVP.Promise();
 
-  $('.modal').addClass('in');
-  $('.modal-backdrop').addClass('in');
+    var openModalPromise = new Ember.RSVP.Promise(function(resolve, reject){
+        $('.modal').addClass('in');
+        $('.modal-backdrop').addClass('in');
 
-  setTimeout(function() {
-    promise.resolve();
-  }, App.DEFAULT_CSS_TRANSITION_DURATION_MS);
+        setTimeout(function() {
+           resolve(true);
+        }, App.DEFAULT_CSS_TRANSITION_DURATION_MS);
+    });
 
-  return promise;
+    return openModalPromise;
 };
